@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Vedixa – AI-Powered Learning Platform
 
 ## Overview
@@ -134,5 +133,3 @@ pnpm --filter @vedixa/api content:seed-syllabus -- --exam JEE_MAIN
 - All PII (phone numbers) is AES-256-GCM encrypted at rest
 - Phone numbers are also SHA-256 hashed for indexed lookup
 =======
-# VEDIXA
->>>>>>> c27210da5c720f52d00eb72539eced6ebefc3db0
