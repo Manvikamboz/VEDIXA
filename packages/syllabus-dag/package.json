@@ -1,0 +1,31 @@
+{
+  "name": "@vedixa/syllabus-dag",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Directed Acyclic Graph scheduling logic for VEDIXA's deterministic study planner",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "node --experimental-vm-modules ../../node_modules/.bin/jest --config jest.config.js",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@vedixa/types": "workspace:*",
+    "date-fns": "^5.6.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "@types/jest": "^29.5.14"
+  }
+}

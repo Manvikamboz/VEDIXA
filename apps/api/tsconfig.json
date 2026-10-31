@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "composite": true,
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "paths": {
+      "@vedixa/types": ["../../packages/types/src/index.ts"],
+      "@vedixa/schemas": ["../../packages/schemas/src/index.ts"],
+      "@vedixa/syllabus-dag": ["../../packages/syllabus-dag/src/index.ts"]
+    }
+  },
+  "references": [
+    { "path": "../../packages/types" },
+    { "path": "../../packages/schemas" },
+    { "path": "../../packages/syllabus-dag" }
+  ],
+  "include": ["src/**/*", "scripts/**/*", "tests/**/*"]
+}

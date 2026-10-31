@@ -1,0 +1,26 @@
+export const i18nStrings = {
+  en: {
+    welcome: 'Welcome to VEDIXA',
+    tagline: 'AI-Powered Personalized Learning for JEE, NEET & Boards',
+    targetExam: 'Target Exam',
+    startPractice: 'Start Practice',
+    solveDoubt: 'Ask AI Academic Mentor',
+    mockTest: 'Take Full Mock Test',
+    masteryHeatmap: 'Topic Mastery Heatmap',
+    todayGoal: "Today's Target Tasks",
+    eloRating: 'Topic Elo Rating',
+    streakDays: 'Day Streak',
+  },
+  hi: {
+    welcome: 'वेदीक्षा में आपका स्वागत है',
+    tagline: 'जेईई, नीट और बोर्ड्स के लिए एआई-संचालित व्यक्तिगत शिक्षण',
+    targetExam: 'लक्ष्य परीक्षा',
+    startPractice: 'अभ्यास शुरू करें',
+    solveDoubt: 'एआई शिक्षक से संदेह पूछें',
+    mockTest: 'मॉक टेस्ट दें',
+    masteryHeatmap: 'विषय महारत हीटमैप',
+    todayGoal: 'आज के निर्धारित लक्ष्य',
+    eloRating: 'विषय रेटिंग (एलो)',
+    streakDays: 'दैनिक स्ट्रीक',
+  },
+};

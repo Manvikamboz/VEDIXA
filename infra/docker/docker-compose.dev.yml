@@ -1,0 +1,62 @@
+name: vedixa-dev
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: vedixa-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: vedixa
+      POSTGRES_PASSWORD: vedixa_dev
+      POSTGRES_DB: vedixa_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - vedixa_postgres_data:/var/lib/postgresql/data
+      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vedixa -d vedixa_dev"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: vedixa-redis
+    restart: unless-stopped
+    command: redis-server --save 60 1 --loglevel warning
+    ports:
+      - "6379:6379"
+    volumes:
+      - vedixa_redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  adminer:
+    image: adminer:4
+    container_name: vedixa-adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    depends_on:
+      - postgres
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: vedixa-redis-commander
+    restart: unless-stopped
+    environment:
+      REDIS_HOSTS: local:redis:6379
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis
+
+volumes:
+  vedixa_postgres_data:
+  vedixa_redis_data:

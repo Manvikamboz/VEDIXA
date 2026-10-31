@@ -1,0 +1,43 @@
+{
+  "name": "vedixa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VEDIXA – AI-powered personalized learning platform for Indian exam aspirants",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.14.2",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "test:unit": "turbo run test:unit",
+    "test:integration": "turbo run test:integration",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
+    "db:migrate": "pnpm --filter @vedixa/api db:migrate",
+    "db:migrate:fresh": "pnpm --filter @vedixa/api db:migrate:fresh",
+    "db:seed": "pnpm --filter @vedixa/api db:seed",
+    "db:studio": "pnpm --filter @vedixa/api db:studio",
+    "docker:up": "docker compose -f infra/docker/docker-compose.dev.yml up -d",
+    "docker:down": "docker compose -f infra/docker/docker-compose.dev.yml down",
+    "docker:logs": "docker compose -f infra/docker/docker-compose.dev.yml logs -f"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.3",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "@typescript-eslint/eslint-plugin": "^8.11.0",
+    "@typescript-eslint/parser": "^8.11.0",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
